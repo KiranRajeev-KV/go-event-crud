@@ -7,5 +7,15 @@ import (
 
 func (app *application) routes() http.Handler {
 	g := gin.Default()
+
+	v1:= g.Group("/api/v1/") 
+	{
+		v1.GET("/events",app.getAllEvents)
+		v1.GET("/event/:id",app.getEventById)
+		v1.POST("/event",app.createEvent)
+		v1.PUT("/event/:id",app.updateEvent)
+		v1.DELETE("/event/:id",app.deleteEvent)
+	}
+
 	return g
 }
