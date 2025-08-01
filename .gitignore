@@ -1,2 +1,5 @@
 # Ignore database file
 data.db
+
+# Ignore environment files
+.env
