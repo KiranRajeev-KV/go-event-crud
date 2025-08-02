@@ -34,7 +34,7 @@ func (m EventModel) Insert(event *Event) error {
 	return nil
 }
 
- func (m EventModel) GetAll() ([]*Event, error) {
+func (m EventModel) GetAll() ([]*Event, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
@@ -64,7 +64,7 @@ func (m EventModel) Insert(event *Event) error {
 	return events, nil
 }
 
-func (m EventModel) Get(id int) (*Event, error) {
+func (m EventModel) GetById(id int) (*Event, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 

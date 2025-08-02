@@ -90,8 +90,9 @@ func (app *application) updateEvent (c *gin.Context) {
 
 	var updatedEvent database.Event
 
-	if err := c.ShouldBindJSON(updatedEvent); err != nil {
+	if err := c.ShouldBindJSON(&updatedEvent); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input"})
+		return
 	}
 
 	updatedEvent.Id = id
