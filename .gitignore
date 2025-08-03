@@ -3,3 +3,10 @@ data.db
 
 # Ignore environment files
 .env
+
+build-errors.log
+tmp/
+
+docs.go
+swagger.json
+swagger.yaml
