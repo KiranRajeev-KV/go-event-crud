@@ -75,3 +75,14 @@ func (m AttendeeModel) GetAttendeesByEvent(eventId int) ([]User, error) {
 	return users, nil
 }
 
+func (m *AttendeeModel) Delete(userId, eventId int) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	query := `DELETE FROM attendees WHERE user_id = $1 AND event_id = $2`
+	_, err := m.DB.ExecContext(ctx, query, userId, eventId)
+	if err != nil {
+		return err
+	}
+	return nil
+}
